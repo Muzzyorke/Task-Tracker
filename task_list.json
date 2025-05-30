@@ -2,11 +2,21 @@
     [
         1,
         "clean house and tidy up clothes",
+        "in progress"
+    ],
+    [
+        3,
+        "cook dinner",
         "todo"
     ],
     [
-        2,
-        "practice English",
+        4,
+        "reading 30min",
+        "todo"
+    ],
+    [
+        5,
+        "running 30min",
         "todo"
     ]
 ]
