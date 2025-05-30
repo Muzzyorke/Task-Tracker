@@ -64,7 +64,7 @@ def main():
         except ValueError:
             print("Invalid task ID.")
 
-    elif command == 'done':
+    elif command == 'mark-done':
         if len(sys.argv) < 3:
             print("Please provide task ID.")
             return
@@ -80,8 +80,42 @@ def main():
             print("Invalid task ID.")
 
     elif command == 'list':
-        for task in task_list:
-            print(task)
+        if len(sys.argv) < 3:
+            for task in task_list:
+                print(task)
+        else:
+            status = ['done', 'in-progress', 'todo']
+            if sys.argv[2] not in status:
+                print("Invalid status.")
+
+            else:
+                found = False
+                if sys.argv[2] == 'done':
+                    for task in task_list:
+                        if task[2] == 'done':
+                            print(f"ID: {task[0]} | Task: {task[1]} | Status: {task[2]}")
+                            found = True
+                    if found == False:
+                        print("No task with status done.")
+                elif sys.argv[2] == 'todo':
+                    for task in task_list:
+                        if task[2] == 'todo':
+                            print(f"ID: {task[0]} | Task: {task[1]} | Status: {task[2]}")
+                            found = True
+                    if found == False:
+                        print("No task with status todo.")
+                elif sys.argv[2] == 'in-progress':
+                    for task in task_list:
+                        if task[2] == 'in progress':
+                            print(f"ID: {task[0]} | Task: {task[1]} | Status: {task[2]}")
+                            found = True
+                    if found == False:
+                        print("No task with status in progress.")  
+                
+                
+
+
+
 
     else:
         print("Unknown command.")
